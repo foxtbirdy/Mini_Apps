@@ -68,10 +68,8 @@ options = {
 print(INTRO)
 while True:
 	player_ipt = input("What do you choice? > ")
-
-
 	com_result = random.choice(list(options))
-
+	
 	if player_ipt == com_result:
 		print(DRAW)
 		print("\nDraw, The Opponent choice " + com_result + " as well")
@@ -125,7 +123,6 @@ while True:
 			print("\nComputer chose " + com_result)
 			print(Scissors)
 			print("\nPlayer Win! , Computer Lose!")
-
 		else:
 			print("Please use Scissors,Rock,Paper")
 	else:
