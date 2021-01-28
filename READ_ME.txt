@@ -1,3 +1,5 @@
+
+
 The Mini Apps repo is the another version of the Small_Projects
 
 Honestly, I wanted to make sure that I don't create a program so well developed as a Prototype since Small_Projects are for Not Fully Developed[NFD] Apps. 
@@ -13,3 +15,4 @@ directly or indirectly. Should you want to develop, Please DM me on my Twitter.
 Should you find any problems, Comment on the code lines and I be sure to check it out!
 
 - CLIMAX_ AKA {Code_Blender_7}
+
