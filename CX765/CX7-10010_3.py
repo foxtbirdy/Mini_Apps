@@ -61,7 +61,7 @@ while active:
                         print("Encrypted")
                 except FileNotFoundError as e:
                         print("\nWe found no file matching that description\n")
-                        print()
+
 
 ############################# ENCRYPTION #############################
 
