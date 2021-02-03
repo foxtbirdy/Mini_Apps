@@ -1,7 +1,4 @@
-           __               __  
-|  |  /\  |__) |\ | | |\ | / _  
-|/\| /--\ | \  | \| | | \| \__) 
-                                
+      
 
 
 CX765 is a python project that is designed for cyber security of PDF files.
