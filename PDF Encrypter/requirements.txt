@@ -1,0 +1,4 @@
+Requirements
+------------------
+1. Python Terminal
+2. PyPDF2
