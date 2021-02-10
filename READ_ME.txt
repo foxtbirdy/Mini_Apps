@@ -12,7 +12,7 @@ My Programs are Open Sourced Licensed which means that you can use it for develo
 directly or indirectly. Should you want to develop, Please DM me on my Twitter. 
 
 
-Should you find any problems, Comment on the code lines and I be sure to check it out!
+Should you find any problems, Comment on the code lines, Launch an ISSUE  and I be sure to check it out!
 
 - CLIMAX_ AKA {Code_Blender_7}
 
