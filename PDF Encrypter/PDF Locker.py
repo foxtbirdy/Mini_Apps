@@ -1,4 +1,5 @@
 import PyPDF2
+import time
 
 print("What do you want to do?")
 
@@ -55,7 +56,8 @@ while active:
         Folder = input("Please write the file's origin => ")
         target_file = input("(File name?) =>")
         file = Folder + ("\\") + target_file + ".pdf"
-        print("RUNNING...\n\n")
+	time.sleep(2)
+        print("\nRUNNING...\n\n")
 
     elif Commands == "help":
             helpline()
