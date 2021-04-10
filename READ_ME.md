@@ -14,5 +14,3 @@ directly or indirectly. Should you want to develop, Please DM me on my Twitter.
 
 Should you find any problems, Comment on the code lines, Launch an ISSUE  and I be sure to check it out!
 
-- CLIMAX_ AKA {Code_Blender_7}
-
