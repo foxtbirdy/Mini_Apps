@@ -1,6 +1,6 @@
 ﻿# ROT13 APP
 </br>
-**Table of Contents**
+<b>Table of Contents</b>
 
  1. About Project
  2. Project Overview and Demo.
@@ -19,7 +19,7 @@ This is the project overview using the default theme.
 
 You can find the Demo via this [twitter link!](https://twitter.com/Black_2_white/status/1381659824409079808)
 
-### PyQT5 Introduction,
+### PyQT5 Introduction
 The infamous PyQt5 is a python module that is used for Graphical User Interface[GUI] development. PyQt5 is packed with amazing basic yet interesting widgets which can be almost customizable in any form that you like! \
 PyQt5 originally comes from the Qt v5 (*PyPI from 2021*)  which is framework that is generally focused on C++. For starters, the PyQt5 is still not perfect as that PyQt5 is no ordinary module with small tutorials and studies to master it. It requires a lot of learning and practice to master it. The PyQt5 Documentations are also not fully complete yet and the original wiki is focused on the C++. \
 The Qt5 Framework do support Python language. It is thus recommended that you get along the basic stuff and move on to the interesting hardcore development.
@@ -28,7 +28,10 @@ Beside the raw coding, it is vital that you learn about these two software for c
 
  1. [Qt Designer](https://www.qt.io/design)
  2. [Qt Creator](https://www.qt.io/product/development-tools) 
-
+Install the pyqt5 module here!
+```
+pip install pyqt5
+```
 
 
 ### How to run it?
