@@ -44,8 +44,8 @@ File Structure below 🔽
 As you see above that the ROT13 APP has three files that are of upmost importance, The **design.css** file handles the professional widget designs. The **app_eng.py** is the main code as you can guess it. The **app_eng.py** can run without the **design.css ** file because the designs are optional for this build.   </br>
 Why you ask?  </br>
 Because the designs are required for impressions ヾ(•ω•`)o and also to give off the professional feeling at the same time. 
-The third program is called the **resource.py** that is carrying the icons files required to give the app a home icon. Without the **resource.py**, the program would trackback an error. Basically the icons are converted from a .png file into a .qml data by using the [Qt resource system.](https://doc.qt.io/qt-5/resources.html)
-You can learn how to design your GUI apps with using the Qt resource collection file with an example [here](https://realpython.com/python-menus-toolbars/) 
+The third program is called the **resource.py** that is carrying the icons files required to give the app a home icon. Without the **resource.py**, the program would trackback an error. Basically the icons are converted from a .png file into a .qml data by using the [Qt resource system.](https://doc.qt.io/qt-5/resources.html) </br>
+You can learn how to design your GUI apps with using the Qt resource collection file with an example [here](https://realpython.com/python-menus-toolbars/) </br>
 Apart from the 3 files, the another file is called the **app_jp.py** which is actually a 日本語 language version of the original program. 
 
 In other words, just be sure to download the whole file folder. </br>
