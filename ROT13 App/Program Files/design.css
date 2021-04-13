@@ -1,0 +1,50 @@
+QPushButton {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                  stop:0 rgba(0, 135, 255, 0.52), stop:1 rgba(0, 245, 255, 0.55));
+    border-radius: 10px;
+    border-style: none;
+    height: 25px;
+    font-family: Quicksand;
+    font-size: 14px;
+    font-style: normal;
+    color: #3b00ff;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 15.4px;
+}   
+
+QPushButton::hover {
+    color: #ff00b1;
+}
+QPushButton::pressed {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                              stop:0 rgb(0, 0, 0), stop:1 rgb(87, 87, 87));
+    color: white
+}
+
+
+QTextEdit {
+    font-family: Quicksand;
+    font-size: 25px;
+    border-radius: 10px;
+    height: 25px;
+
+}
+
+QMainWindow {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                      stop:1 #9ac0e1, stop:0 #ffffff);
+    
+    
+}
+
+QLabel {
+
+    font-family: Quicksand;
+    font-size: 20px;
+    font-style: normal;
+    color: #9035ff;
+    font-variant: normal;
+    font-weight: 450;
+    line-height: 15.4px;
+}
