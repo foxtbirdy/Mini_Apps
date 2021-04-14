@@ -29,7 +29,7 @@ The Qt5 Framework do support Python language. It is thus recommended that you ge
 Beside the raw coding, it is vital that you learn about these two software for creating applications of insane creativity! 
 
  1. [Qt Designer](https://www.qt.io/design)
- 2. [Qt Creator](https://www.qt.io/product/development-tools) 
+ 2. [Qt Creator](https://www.qt.io/product/development-tools) </br>
 Install the pyqt5 module here!
 ```
 pip install pyqt5
@@ -38,9 +38,7 @@ pip install pyqt5
 
 ### How to run it?
 ROT13 App program can be ran directly from the command shell.  </br>
-~~~
-C:\Python\python app.py // CMD
-~~~
+
 File Structure below 🔽
 ![image](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Images_for_readme/brrrtttttttttt.png?raw=true)
 
