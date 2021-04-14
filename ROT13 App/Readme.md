@@ -3,11 +3,11 @@
 
 ### Table of Contents
 
- 1. About Project
- 2. Project Overview and Demo.
- 3. PyQt5 Introduction
- 4. How to run it?
- 5. Future Addins
+ 1. [About Project](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Readme.md#about-project)
+ 2. [Project Overview and Demo](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#project-overview-and-demo)
+ 3. [PyQt5 Introduction](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#pyqt5-introduction)
+ 4. [How to run it?](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#how-to-run-it)
+ 5. [Future Addins](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#future-addins)
  
 ### About Project
 The ROT13 app is a GUI implementation of the original ROT13 encryption. This program is created by using the PyQT5 module on python with CSS styling! 
@@ -59,10 +59,10 @@ After that, you can access the app by using the terminal if you like or anyway o
 
 ### Future Addins
 These are future addins that you can expect in the future!
-```
+
 
  - [X] Change the theme to nebula theme.
  - [ ] Add a github icon link.
  - [ ] Add a execuetable file for installing.
  
-```
+
