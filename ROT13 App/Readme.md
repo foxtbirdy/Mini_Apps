@@ -75,7 +75,6 @@ These are future addins that you can expect in the future!
 ### Updates - 
 1. 
 The Original theme has been replaced with the ___nebula___ theme.
-![images](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Images_for_readme/1.png)
 
 2. Unnecessary lines of code has been removed from app.py
 3. Rot13 Program changed into ROT13 GUI. 
