@@ -52,8 +52,6 @@ _code ran on python version 3.9.1_
 </br>
 You can also use the ___install.exe___ to install the app directly.
 
-File Structure below 🔽
-
 
 <h4>Details of the files</h4>
 <b>/Program Files/app.py</b> - Main python script inheriting the source code.
@@ -73,9 +71,7 @@ These are future addins that you can expect in the future!
  - [X] Add a execuetable file for installing.
  
 ### Updates - 
-1. 
-The Original theme has been replaced with the ___nebula___ theme.
-
+1. The Original theme has been replaced with the ___nebula___ theme.
 2. Unnecessary lines of code has been removed from app.py
 3. Rot13 Program changed into ROT13 GUI. 
 4. Added execuetable file for fast install.
