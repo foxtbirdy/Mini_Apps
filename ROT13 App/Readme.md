@@ -60,7 +60,8 @@ You can also use the ___install.exe___ to install the app directly.
 </p>
 <b>/Program Files/resoures.py</b> - Main .qt resource file for the additional icons and images the <b>app.py</b> is using for its appearance. 
 </p>
-<b>⚠WARNING!⚠ </b>
+<b>⚠WARNING!⚠ </b> </br>
+
 Without the **resource.py**, the program would trackback an error. Basically the icons are converted from a .png file into a .qml data by using the [Qt resource system.](https://doc.qt.io/qt-5/resources.html) </br>
 You can learn how to design your GUI apps with using the Qt resource collection file with an example [here](https://realpython.com/python-menus-toolbars/). </br>
 
