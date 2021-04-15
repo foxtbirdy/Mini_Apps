@@ -8,7 +8,7 @@
  3. [PyQt5 Introduction](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#pyqt5-introduction)
  4. [How to run it?](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#how-to-run-it)
  5. [Future Addins](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#future-addins)
- 6. [Updates](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#updates)
+ 6. [Updates](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#updates--)
  
 ### About Project
 The ROT13 app is a GUI implementation of the original ROT13 encryption. This program is created by using the PyQT5 module on python with CSS styling! 
@@ -47,7 +47,6 @@ git clone https://github.com/Code-Blender-7/Mini_Apps
 ROT13 App program can be ran directly from the command shell.  
 ```
 D:\Mini_Apps\ROT13 APP\Program Files> python app.py
-
 ```
 _code ran on python version 3.9.1_
 </br>
@@ -63,16 +62,14 @@ File Structure below 🔽
 </p>
 <b>/Program Files/resoures.py</b> - Main .qt resource file for the additional icons and images the <b>app.py</b> is using for its appearance. 
 </p>
-<b>⚠WARNING!⚠</b>
+<b>⚠WARNING!⚠ </b>
 Without the **resource.py**, the program would trackback an error. Basically the icons are converted from a .png file into a .qml data by using the [Qt resource system.](https://doc.qt.io/qt-5/resources.html) </br>
 You can learn how to design your GUI apps with using the Qt resource collection file with an example [here](https://realpython.com/python-menus-toolbars/). </br>
 
 ### Future Addins
 These are future addins that you can expect in the future!
 
-
  - [X] Change the theme to nebula theme.
- - [X] Add a github icon link.
  - [X] Add a execuetable file for installing.
  
 ### Updates - 
@@ -80,9 +77,6 @@ These are future addins that you can expect in the future!
 The Original theme has been replaced with the ___nebula___ theme.
 ![images](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Images_for_readme/1.png)
 
-2. 
-Unnecessary lines of code has been removed from app.py
-3. 
-Rot13 Program changed into ROT13 GUI. 
-4.
-Added execuetable file for fast install.
+2. Unnecessary lines of code has been removed from app.py
+3. Rot13 Program changed into ROT13 GUI. 
+4. Added execuetable file for fast install.
