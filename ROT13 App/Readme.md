@@ -8,6 +8,7 @@
  3. [PyQt5 Introduction](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#pyqt5-introduction)
  4. [How to run it?](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#how-to-run-it)
  5. [Future Addins](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#future-addins)
+ 6. [Updates](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#updates)
  
 ### About Project
 The ROT13 app is a GUI implementation of the original ROT13 encryption. This program is created by using the PyQT5 module on python with CSS styling! 
@@ -17,7 +18,7 @@ You can find the encryption code [here](https://www.dotnetperls.com/rot13-python
 
 ### Project Overview and Demo
 This is the project overview using the default theme.
-![image_2](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Images_for_readme/2.png?raw=true)
+![image_2](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Images_for_readme/3.png)
 
 You can find the Demo via this [twitter link!](https://twitter.com/Black_2_white/status/1381659824409079808)
 
@@ -30,37 +31,58 @@ Beside the raw coding, it is vital that you learn about these two software for c
 
  1. [Qt Designer](https://www.qt.io/design)
  2. [Qt Creator](https://www.qt.io/product/development-tools) </br>
-Install the pyqt5 module here!
+
+Installation of pyqt5 module
 ```
 pip install pyqt5
 ```
 
 
-### How to run it?
-ROT13 App program can be ran directly from the command shell.  </br>
+### How to install?
+You can download the repo for the code using git. 
+```
+git clone https://github.com/Code-Blender-7/Mini_Apps
+```
+
+ROT13 App program can be ran directly from the command shell.  
+```
+D:\Mini_Apps\ROT13 APP\Program Files> python app.py
+
+```
+_code ran on python version 3.9.1_
+</br>
+You can also use the ___install.exe___ to install the app directly.
 
 File Structure below 🔽
-![image](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Images_for_readme/brrrtttttttttt.png?raw=true)
-
-As you see above that the ROT13 APP has three files that are of upmost importance, The **design.css** file handles the professional widget designs. The **app_eng.py** is the main code as you can guess it. The **app_eng.py** can run without the **design.css ** file because the designs are optional for this build.   </br>
-Why you ask?  </br>
-Because the designs are required for impressions ヾ(•ω•)o and also to give off the professional feeling at the same time. </br>
-The third program is called the **resource.py** that is carrying the icons files required to give the app a home icon. Without the **resource.py**, the program would trackback an error. Basically the icons are converted from a .png file into a .qml data by using the [Qt resource system.](https://doc.qt.io/qt-5/resources.html) </br>
-You can learn how to design your GUI apps with using the Qt resource collection file with an example [here](https://realpython.com/python-menus-toolbars/) </br>
 
 
-
-
-In other words, just be sure to download the whole file folder. </br>
-After that, you can access the app by using the terminal if you like or anyway of you to access a python script. 
-
+<h4>Details of the files</h4>
+<b>/Program Files/app.py</b> - Main python script inheriting the source code.
+</p>
+<b>/Program Files/design.css</b> - Main css script for the widget personalizations. 
+</p>
+<b>/Program Files/resoures.py</b> - Main .qt resource file for the additional icons and images the <b>app.py</b> is using for its appearance. 
+</p>
+<b>⚠WARNING!⚠</b>
+Without the **resource.py**, the program would trackback an error. Basically the icons are converted from a .png file into a .qml data by using the [Qt resource system.](https://doc.qt.io/qt-5/resources.html) </br>
+You can learn how to design your GUI apps with using the Qt resource collection file with an example [here](https://realpython.com/python-menus-toolbars/). </br>
 
 ### Future Addins
 These are future addins that you can expect in the future!
 
 
  - [X] Change the theme to nebula theme.
- - [ ] Add a github icon link.
- - [ ] Add a execuetable file for installing.
+ - [X] Add a github icon link.
+ - [X] Add a execuetable file for installing.
  
+### Updates - 
+1. 
+The Original theme has been replaced with the ___nebula___ theme.
+![images](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Images_for_readme/1.png)
 
+2. 
+Unnecessary lines of code has been removed from app.py
+3. 
+Rot13 Program changed into ROT13 GUI. 
+4.
+Added execuetable file for fast install.
