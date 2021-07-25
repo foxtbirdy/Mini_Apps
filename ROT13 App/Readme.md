@@ -50,7 +50,6 @@ D:\Mini_Apps\ROT13 APP\Program Files> python app.py
 ```
 _code ran on python version 3.9.1_
 </br>
-You can also use the ___install.exe___ to install the app directly.
 
 
 <h4>Details of the files</h4>
