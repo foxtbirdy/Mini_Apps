@@ -13,7 +13,7 @@
 ### About Project
 The ROT13 app is a GUI implementation of the original ROT13 encryption. This program is created by using the PyQT5 module on python with CSS styling! 
 
-I created this program because I got bored with the terminal and decided to host my programs with a app kind of a interface. That is why I created this program. The designs and app interface is done by me while the encryption algorithm is done by Sam Allen. </br>
+I created this program because I got bored with the terminal and decided to host my programs with an "app" kind of a interface. That is why I created this program. The designs and app interface is done by me while the encryption algorithm is done by Sam Allen. </br>
 You can find the encryption code [here](https://www.dotnetperls.com/rot13-python) :)
 
 ### Project Overview and Demo
@@ -74,4 +74,7 @@ These are future addins that you can expect in the future!
 1. The Original theme has been replaced with the ___nebula___ theme.
 2. Unnecessary lines of code has been removed from app.py
 3. Rot13 Program changed into ROT13 GUI. 
-4. Added execuetable file for fast install.
+
+
+
+_code ran on python version 3.9.1_
