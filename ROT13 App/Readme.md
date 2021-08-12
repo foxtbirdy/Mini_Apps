@@ -46,9 +46,9 @@ git clone https://github.com/Code-Blender-7/Mini_Apps
 
 ROT13 App program can be ran directly from the command shell.  
 ```
-D:\Mini_Apps\ROT13 APP\Program Files> python app.py
+[DISK]\Mini_Apps\ROT13 APP\Program Files> python app.py
 ```
-_code ran on python version 3.9.1_
+_code ran on python version 3.9.1 on Win10_
 </br>
 
 
