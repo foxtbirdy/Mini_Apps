@@ -9,7 +9,7 @@ __author__ = "@Black_2_white"
 __encryption_by__ = "sam allen"
 
 
-class Example(QMainWindow):
+class APP(QMainWindow):
 
 
     def __init__(self):
@@ -129,6 +129,6 @@ class Example(QMainWindow):
         
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = Example()
+    ex = APP()
     ex.show()
     sys.exit(app.exec_())
