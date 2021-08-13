@@ -67,11 +67,11 @@ _code ran on python version 3.9.1 on Win10_
 
 <h4>Details of the files</h4>
 
-[app.py ](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Program%20Files/app.py)- Main python script inheriting the source code.
-</p>
-[design.css ](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Program%20Files/design.css)- Main css script for the widget personalizations. 
-</p>
-[resoures.py ](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Program%20Files/resources.py)- Computer generated .qt resource file  data for the additional icons and images the <b>app.py</b> is using for its appearance. 
+[app.py](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Program%20Files/app.py)- Main python script inheriting the source code.
+
+[design.css](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Program%20Files/design.css)- Main css script for the widget personalizations. 
+
+[resoures.py](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Program%20Files/resources.py)- Computer generated .qt resource file  data for the additional icons and images the <b>app.py</b> is using for its appearance. 
 </p>
 
 
