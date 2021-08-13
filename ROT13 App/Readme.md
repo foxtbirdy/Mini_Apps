@@ -102,7 +102,5 @@ These are future addins that you can expect in the future!
 1. The Original theme has been replaced with the ___nebula___ theme.
 2. Unnecessary lines of code has been removed from app.py
 3. Rot13 Program changed into ROT13 GUI. 
+4. .EXE file removed.
 
-
-
-_code ran on python version 3.9.1_
