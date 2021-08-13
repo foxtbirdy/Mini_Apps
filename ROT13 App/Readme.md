@@ -90,8 +90,9 @@ You can learn how to design your GUI apps with using the Qt resource collection 
 ### Future Addins
 These are future addins that you can expect in the future!
 
- - [X] Change the theme to nebula theme.
- - [X] Add a execuetable file for installing.
+✅ Change the theme to nebula theme.
+</br>
+❌ Add a execuetable file for installing.
  
  
 //////////////////////////////////////////////////////////////////////////////
