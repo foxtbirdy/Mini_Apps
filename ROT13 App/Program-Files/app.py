@@ -72,11 +72,11 @@ class APP(QMainWindow):
         self.logo.setStyleSheet("""
         background-image: url(:icon.png)
         """)
-        self.logo.setGeometry(325,760,62,62)
+        self.logo.setGeometry(325,740,62,62)
         
         self.text_label = QLabel(self)
         self.text_label.setText("ROT13 \nGUI \nAPPLICATION")
-        self.text_label.setGeometry(400, 755, 140, 70)
+        self.text_label.setGeometry(400, 735, 140, 70)
 
         
         

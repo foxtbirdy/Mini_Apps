@@ -20,7 +20,7 @@ You can find the encryption code [here](https://www.dotnetperls.com/rot13-python
 
 ### Project Overview and Demo
 This is the project overview using the default theme.
-![image_2](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Images_for_readme/3.png)
+![image 1](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Images_for_readme/1.png)
 
 You can find the Demo via this [twitter link!](https://twitter.com/Black_2_white/status/1381659824409079808)
 
@@ -49,16 +49,33 @@ pip install pyqt5
 
 
 ### How to install?
-You can download the repo for the code using git. 
+
+<h4>
+    
+ You can clone the repo for the code using git. 
+</h4>
 ```
 git clone https://github.com/Code-Blender-7/Mini_Apps
 ```
+or download the files of this project in zip by using Downgit [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App).
 
-ROT13 App program can be ran directly from the command shell.  
-```
-[DISK]\Mini_Apps\ROT13 APP\Program Files> python app.py
-```
+
 _code ran on python version 3.9.1 on Win10_
+
+You can also download the file and then run the script setup file to build the app yourself should you wish. *Note that it works for Windows only for now..*
+
+```diff
+-Please note that the builtin .exe may not run until you installed the following libraries.
++ $ pip install PyQt5
++ $ pip install pyperclip
++ $ pip install cx_Freeze
+```
+After you installed the libraries, add this to your command line to build the program internally.
+```
+$ python setup-build-script.py build
+```
+I'll find a way to make it  be available for MacOS too.
+
 </br>
 
 
@@ -93,7 +110,7 @@ These are future addins that you can expect in the future!
 ✅ Change the theme to nebula theme.
 </br>
 ❌ Add a execuetable file for installing.
- 
+✅ Added new built-in executable script file
  
 //////////////////////////////////////////////////////////////////////////////
 
