@@ -6,7 +6,7 @@
  1. [About Project](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Readme.md#about-project)
  2. [Project Overview and Demo](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#project-overview-and-demo)
  3. [PyQt5 Introduction](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#pyqt5-introduction)
- 4. [How to run it?](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#how-to-run-it)
+ 4. [How to run it?](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#how-to-install)
  5. [Future Addins](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#future-addins)
  6. [Updates](https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App#updates--)
  
@@ -54,9 +54,11 @@ pip install pyqt5
     
  You can clone the repo for the code using git. 
 </h4>
+
 ```
 git clone https://github.com/Code-Blender-7/Mini_Apps
 ```
+
 or download the files of this project in zip by using Downgit [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/Code-Blender-7/Mini_Apps/tree/main/ROT13%20App).
 
 
@@ -110,6 +112,7 @@ These are future addins that you can expect in the future!
 ✅ Change the theme to nebula theme.
 </br>
 ❌ Add a execuetable file for installing.
+</br>
 ✅ Added new built-in executable script file
  
 //////////////////////////////////////////////////////////////////////////////
