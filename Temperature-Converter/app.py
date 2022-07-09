@@ -2,13 +2,14 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-10 00:02:38
+# @Last Modified time: 2022-07-10 01:07:02
 
 
 import sys 
 
 from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QVBoxLayout)
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
 app = QApplication(sys.argv)
 
 
@@ -27,6 +28,7 @@ class MainWindow(QMainWindow):
 		font = label_Intro.font()
 		font.setPointSize(17)
 		label_Intro.setFont(font)
+		label_Intro.setStyleSheet("border : 2px solid black;")
 		label_Intro.resize(400,20)
 		label_Intro.move(20,10)
 
@@ -34,7 +36,8 @@ class MainWindow(QMainWindow):
 		label_descript_font = label_description.font()
 		label_descript_font.setPointSize(17)
 		label_description.setFont(label_descript_font)
-		label_description.resize(600,20)
+		label_description.setStyleSheet("border : 2px solid black;")
+		label_description.resize(600,100)
 		label_description.move(20,45)
 		label_description.setWordWrap(True)
 
