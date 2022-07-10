@@ -2,7 +2,7 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-10 19:11:22
+# @Last Modified time: 2022-07-10 20:42:30
 
 
 import sys 
@@ -17,7 +17,7 @@ class MainWindow(QMainWindow):
 	def __init__(self):
 		super().__init__()	
 		self.setWindowTitle("Testing")
-		self.setFixedSize(600,700)
+		self.setFixedSize(600,800)
 		self.label_above()
 		self.input_field()
 
@@ -37,28 +37,31 @@ class MainWindow(QMainWindow):
 		label_description.setWordWrap(True)
 
 	def input_field(self):
-		# label_Celcius
-		label_Celcius = QLabel("*Celcius", self)
-		label_Celcius.setFont(QFont("Arial", 17))
-		label_Celcius.move(20,200)
-		label_Celcius.resize(150,30)
-		label_Celcius.setStyleSheet("border: 2px solid black")
+		# Labels for the SI Units
+		# dict - units, dimensions
+		temperatures = {"Celcius" : 200, 
+						"Fahrenheit" : 350, 
+						"Kelvin" : 500}
 
-		label_fahrenheit = QLabel("*Fahrenheit", self)
-		label_fahrenheit.setFont(QFont("Arial", 17))
-		label_fahrenheit.move(20,350)
-		label_fahrenheit.resize(150,30)
-		label_fahrenheit.setStyleSheet("border: 2px solid black")
-
-		label_Kelvin = QLabel("*Kelvin", self)
-		label_Kelvin.setFont(QFont("Arial", 17))
-		label_Kelvin.move(20,500)
-		label_Kelvin.resize(150,30)
-		label_Kelvin.setStyleSheet("border: 2px solid black")
+		for unit,dimensions in temperatures.items():
+			labels = QLabel("*"+unit+":", self)
+			labels.setFont(QFont("Arial", 20))
+			labels.move(20,dimensions)
+			labels.resize(160,30)
+			labels.setStyleSheet("border: 2px solid black")
 
 
+		input_Celcius = QLineEdit("", self)
+		input_Celcius.move(20,265)
 
+		input_Fahrenheit = QLineEdit("", self)
+		input_Fahrenheit.move(20,415)
 
+		input_kelvin = QLineEdit("", self)
+		input_kelvin.move(20,570)
+
+		for size in input_kelvin, input_Fahrenheit, input_Celcius:
+			size.resize(200,50)
 
 
 
