@@ -2,7 +2,7 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-10 20:42:30
+# @Last Modified time: 2022-07-14 13:25:45
 
 
 import sys 
@@ -20,6 +20,7 @@ class MainWindow(QMainWindow):
 		self.setFixedSize(600,800)
 		self.label_above()
 		self.input_field()
+		self.slot_connect()
 
 
 	def label_above(self):
@@ -50,21 +51,29 @@ class MainWindow(QMainWindow):
 			labels.resize(160,30)
 			labels.setStyleSheet("border: 2px solid black")
 
+		# input fields
+		self.input_Celcius = QLineEdit("", self)
+		self.input_Celcius.move(20,265)
 
-		input_Celcius = QLineEdit("", self)
-		input_Celcius.move(20,265)
+		self.input_Fahrenheit = QLineEdit("", self)
+		self.input_Fahrenheit.move(20,415)
 
-		input_Fahrenheit = QLineEdit("", self)
-		input_Fahrenheit.move(20,415)
+		self.input_kelvin = QLineEdit("", self)
+		self.input_kelvin.move(20,570)
 
-		input_kelvin = QLineEdit("", self)
-		input_kelvin.move(20,570)
-
-		for size in input_kelvin, input_Fahrenheit, input_Celcius:
+		for size in self.input_kelvin, self.input_Fahrenheit, self.input_Celcius:
 			size.resize(200,50)
 
+	def slot_connect(self):
+		# doesn't work yet
+		self.input_Celcius.textChanged.connect(self.celcius_evaluation)
+		self.input_Fahrenheit.textChanged.connect(self.frehenheit_evaluation)
+		self.input_kelvin.textChanged.connect(self.kelvin_evaluation)
 
 
 window = MainWindow()
 window.show()
 app.exec_()
+
+
+
