@@ -2,7 +2,7 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-14 18:37:56
+# @Last Modified time: 2022-07-14 18:40:02
 
 
 import sys 
@@ -56,7 +56,6 @@ class MainWindow(QMainWindow):
 			labels.setFont(QFont("Arial", 20))
 			labels.move(20,dimensions)
 			labels.resize(160,30)
-			labels.setStyleSheet("border: 2px solid black")
 
 		# input fields
 		self.input_Celcius = QLineEdit("", self)
@@ -74,8 +73,6 @@ class MainWindow(QMainWindow):
 
 	def slot_connect(self):
 
-		self.input_Celcius.textChanged.connect(self.celcius_evaluation)
-		self.input_Celcius.textChanged.connect(self.celcius_evaluation)
 		self.input_Celcius.textChanged.connect(self.celcius_evaluation)
 	
 
