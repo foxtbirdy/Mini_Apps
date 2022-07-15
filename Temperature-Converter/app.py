@@ -2,7 +2,7 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-14 18:40:02
+# @Last Modified time: 2022-07-15 20:06:49
 
 
 import sys 
@@ -12,7 +12,7 @@ from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QLineEdit)
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont
 
-from convert import * 
+from convert import SI_Calculator
 
 
 calculuate = SI_Calculator()
@@ -23,7 +23,7 @@ exception = re.compile('[0-9.]+$')
 class MainWindow(QMainWindow):
 	def __init__(self):
 		super().__init__()	
-		self.setWindowTitle("Testing")
+		self.setWindowTitle("Testing Balls")
 		self.setFixedSize(600,800)
 		self.label_above()
 		self.input_field()
@@ -74,13 +74,36 @@ class MainWindow(QMainWindow):
 	def slot_connect(self):
 
 		self.input_Celcius.textChanged.connect(self.celcius_evaluation)
-	
+		self.input_Fahrenheit.textChanged.connect(self.fahrenheit_evaluation)
+		self.input_Kelvin.textChanged.connect(self.kelvin_evaluation)
+
+
 
 	def celcius_evaluation(self, s):
 		if not exception.match(s):
 		 	self.input_Celcius.setText(s)
 		else:
 			print(f"Fahrenheit: {calculuate.celcius_to_fahrenheit(s)}")
+			print(f"Kelvin: {calculuate.celcius_to_kelvin(s)}")
+
+
+	def fahrenheit_evaluation(self, s):
+		if not exception.match(s):
+		 	self.input_Fahrenheit.setText(s)
+		else:
+			print(f"Celcius: {calculuate.fahrenheit_to_celcius(s)}")
+			print(f"Kelvin: {calculuate.fahrenheit_to_kelvin(s)}")
+
+	def kelvin_evaluation(self, s):
+		if not exception.match(s):
+		 	self.input_Kelvin.setText(s)
+		else:
+			print(f"Celcius: {calculuate.kelvin_to_Celcius(s)}")
+			print(f"Fahrenheit: {calculuate.kelvin_to_Fahrenheit(s)}")
+
+
+
+
 
 window = MainWindow()
 window.show()
