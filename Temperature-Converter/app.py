@@ -2,7 +2,7 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-15 20:06:49
+# @Last Modified time: 2022-07-15 22:06:49
 
 
 import sys 
@@ -68,7 +68,15 @@ class MainWindow(QMainWindow):
 		self.input_Kelvin.move(20,570)
 
 		for size in self.input_Kelvin, self.input_Fahrenheit, self.input_Celcius:
-			size.resize(200,50)
+			size.resize(300,50)
+
+			font = size.font()
+			font.setPointSize(16)
+			size.setFont(font)
+
+			size.setStyleSheet("QLineEdit {background:transparent; border-style: outset; border-width: 2px; border-color: green}")
+
+	# def error_msg_label(self):
 
 
 	def slot_connect(self):
@@ -80,6 +88,11 @@ class MainWindow(QMainWindow):
 
 
 	def celcius_evaluation(self, s):
+		print(f"length {len(s)}")
+
+		self.input_Fahrenheit.setDisabled(True)
+		self.input_Kelvin.setDisabled(True)
+
 		if not exception.match(s):
 		 	self.input_Celcius.setText(s)
 		else:
@@ -89,10 +102,11 @@ class MainWindow(QMainWindow):
 
 	def fahrenheit_evaluation(self, s):
 		if not exception.match(s):
-		 	self.input_Fahrenheit.setText(s)
+		 	self.input_Celcius.setText(s)		 	
 		else:
 			print(f"Celcius: {calculuate.fahrenheit_to_celcius(s)}")
 			print(f"Kelvin: {calculuate.fahrenheit_to_kelvin(s)}")
+
 
 	def kelvin_evaluation(self, s):
 		if not exception.match(s):
