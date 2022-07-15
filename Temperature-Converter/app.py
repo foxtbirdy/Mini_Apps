@@ -2,22 +2,22 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-15 22:06:49
+# @Last Modified time: 2022-07-15 23:33:36
 
 
 import sys 
 import re
-
 from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QLineEdit)
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QFont
+from PyQt5 import QtCore
+from PyQt5.QtCore import Qt, QRegExp
+from PyQt5.QtGui import QFont, QRegExpValidator
 
 from convert import SI_Calculator
 
 
 calculuate = SI_Calculator()
 app = QApplication(sys.argv)
-exception = re.compile('[0-9.]+$')
+exception = QtCore.QRegExp('[0-9.]+$') # Regex syntax
 
 
 class MainWindow(QMainWindow):
@@ -74,7 +74,11 @@ class MainWindow(QMainWindow):
 			font.setPointSize(16)
 			size.setFont(font)
 
+			# set designs for the QLineEdit
 			size.setStyleSheet("QLineEdit {background:transparent; border-style: outset; border-width: 2px; border-color: green}")
+
+			# restrict inputs to int + set limit
+			size.setValidator(QRegExpValidator(exception))
 
 	# def error_msg_label(self):
 
@@ -88,40 +92,54 @@ class MainWindow(QMainWindow):
 
 
 	def celcius_evaluation(self, s):
-		print(f"length {len(s)}")
+		# disable if there is a value in a lineedit
+		if len(s) > 0:
+			self.input_Fahrenheit.setDisabled(True)
+			self.input_Kelvin.setDisabled(True)
+		else:
+			self.input_Fahrenheit.setDisabled(False)
+			self.input_Kelvin.setDisabled(False)
 
-		self.input_Fahrenheit.setDisabled(True)
-		self.input_Kelvin.setDisabled(True)
-
-		if not exception.match(s):
-		 	self.input_Celcius.setText(s)
+		if s == "":
+			pass
 		else:
 			print(f"Fahrenheit: {calculuate.celcius_to_fahrenheit(s)}")
 			print(f"Kelvin: {calculuate.celcius_to_kelvin(s)}")
 
 
 	def fahrenheit_evaluation(self, s):
-		if not exception.match(s):
-		 	self.input_Celcius.setText(s)		 	
+		# disable if there is a value in a lineedit
+		if len(s) > 0:
+			self.input_Celcius.setDisabled(True)
+			self.input_Kelvin.setDisabled(True)
+		else:
+			self.input_Celcius.setDisabled(False)
+			self.input_Kelvin.setDisabled(False)
+
+
+		if s == "":
+			pass
 		else:
 			print(f"Celcius: {calculuate.fahrenheit_to_celcius(s)}")
 			print(f"Kelvin: {calculuate.fahrenheit_to_kelvin(s)}")
 
 
 	def kelvin_evaluation(self, s):
-		if not exception.match(s):
-		 	self.input_Kelvin.setText(s)
+		# disable if there is a value in a lineedit
+		if len(s) > 0:
+			self.input_Fahrenheit.setDisabled(True)
+			self.input_Celcius.setDisabled(True)
+		else:
+			self.input_Fahrenheit.setDisabled(False)
+			self.input_Celcius.setDisabled(False)
+
+		if s == "":
+			pass
 		else:
 			print(f"Celcius: {calculuate.kelvin_to_Celcius(s)}")
 			print(f"Fahrenheit: {calculuate.kelvin_to_Fahrenheit(s)}")
 
 
-
-
-
 window = MainWindow()
 window.show()
 app.exec_()
-
-
-
