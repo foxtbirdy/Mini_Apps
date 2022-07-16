@@ -2,7 +2,7 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-17 01:01:01
+# @Last Modified time: 2022-07-17 01:10:17
 
 
 import sys 
@@ -17,7 +17,7 @@ from convert import SI_Calculator
 
 calculuate = SI_Calculator()
 app = QApplication(sys.argv)
-exception = QtCore.QRegExp('[0-9.]+$') # Regex syntax
+exception = QtCore.QRegExp('[0-9.-]+$') # Regex syntax
 
 
 class MainWindow(QMainWindow):
