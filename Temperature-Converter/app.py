@@ -2,17 +2,20 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-17 01:10:17
+# @Last Modified time: 2022-07-17 01:57:28
 
 
 import sys 
-import re
+
 from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QLineEdit)
 from PyQt5 import QtCore
 from PyQt5.QtCore import Qt, QRegExp
 from PyQt5.QtGui import QFont, QRegExpValidator
 
 from convert import SI_Calculator
+
+# QRegExp is for the Regex Support. 
+# QRegExpValidator is for the validator of the PyQt5 to be Regex Supported
 
 
 calculuate = SI_Calculator()
@@ -27,6 +30,7 @@ class MainWindow(QMainWindow):
 		self.setFixedSize(600,800)
 		self.label_above()
 		self.input_field()
+		self.error_msg_label()
 		self.slot_connect()
 
 
@@ -51,21 +55,24 @@ class MainWindow(QMainWindow):
 						"Fahrenheit" : 330, 
 						"Kelvin" : 480}
 
-		for unit,dimensions in temperatures.items():
+		for unit,dimen in temperatures.items(): # dimen as of dimension
 			labels = QLabel("*"+unit+":", self)
 			labels.setFont(QFont("Arial", 20))
-			labels.move(20,dimensions)
+			labels.move(20,dimen)
 			labels.resize(160,30)
 
 		# input fields
 		self.input_Celcius = QLineEdit("", self)
 		self.input_Celcius.move(20,245)
+		self.input_Celcius.setPlaceholderText("Enter your Celcius here")
 
 		self.input_Fahrenheit = QLineEdit("", self)
 		self.input_Fahrenheit.move(20,390)
+		self.input_Fahrenheit.setPlaceholderText("Enter your Fahrenheit here")
 
 		self.input_Kelvin = QLineEdit("", self)
 		self.input_Kelvin.move(20,540)
+		self.input_Kelvin.setPlaceholderText("Enter your Kelvin here")
 
 		for size in self.input_Kelvin, self.input_Fahrenheit, self.input_Celcius:
 			# set size for QLineEdit
@@ -81,7 +88,44 @@ class MainWindow(QMainWindow):
 			# restrict inputs to int + set limit
 			size.setValidator(QRegExpValidator(exception))
 
-	# def error_msg_label(self):
+	def error_msg_label(self):
+		# temperatures = {"Celcius" : [180, 50], # dimen as of dimension
+		# 				"Fahrenheit" : [330,50], 
+		# 				"Kelvin" : [480,50]
+		# 				}
+
+
+		# for unit,dimen in temperatures.items():
+		# 	labels = QLabel("Error.", self)
+		# 	labels.setFont(QFont("Arial", 20))
+		# 	labels.move(20,dimensions)
+		# 	labels.resize(160,30)
+
+
+		self.celcius_error = QLabel("Error found", self)
+		# self.celcius_error.move(150, 182)
+		# self.celcius_error.resize(160,30)
+
+		self.fahrenheit_error = QLabel("Error found", self)
+		# self.fahrenheit_error.move(170, 332)
+		# self.fahrenheit_error.resize(160,30)
+
+		self.kelvin_error = QLabel("Error found", self)
+		# self.kelvin_error.move(150, 482)
+		# self.kelvin_error.resize(160,30)
+
+		units = {
+			self.celcius_error: [250,182],
+			self.fahrenheit_error: [250,332],
+			self.kelvin_error: [250,482]	
+		}
+
+		for var, pos in units.items():
+			var.move(pos[0], pos[1])
+			var.resize(270,30)	
+			var.setFont(QFont("Arial", 16))
+			var.setStyleSheet("color: red; border: 2px solid black")
+			var.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignVCenter)
 
 
 	def slot_connect(self):
@@ -116,7 +160,6 @@ class MainWindow(QMainWindow):
 		else:
 			self.input_Celcius.setDisabled(False)
 			self.input_Kelvin.setDisabled(False)
-
 
 		if s == "":
 			pass
