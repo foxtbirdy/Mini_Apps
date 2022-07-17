@@ -39,3 +39,5 @@ USER VALUE -> PASS VALUE TO VALIDATOR -> CALCULATE VALUE -> PUBLISH RESULTS
 the QRegExpValidator comes with a feature of "Invalid, Accepted, Intermediate"
 
 both the respond have their own code calls that makes my work be a lot easier.
+
+This is a link of a post by [snorfalorpagus.net](https://snorfalorpagus.net/blog/2014/08/09/validating-user-input-in-pyqt4-using-qvalidator/) related to the usage of Validator. They covered all the details. I think.

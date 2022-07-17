@@ -2,13 +2,14 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-17 17:41:26
+# @Last Modified time: 2022-07-17 20:16:36
 
 
 import sys 
 
 from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QLineEdit)
 from PyQt5 import QtCore
+from PyQt5 import QtGui
 from PyQt5.QtCore import Qt, QRegExp
 from PyQt5.QtGui import QFont, QRegExpValidator
 
@@ -21,6 +22,8 @@ from convert import SI_Calculator
 calculuate = SI_Calculator()
 app = QApplication(sys.argv)
 exception = QtCore.QRegExp('[0-9.-]+$') # Regex syntax
+validator = QtGui.QRegExpValidator(exception)
+
 
 
 class MainWindow(QMainWindow):
@@ -30,7 +33,6 @@ class MainWindow(QMainWindow):
 		self.setFixedSize(600,800)
 		self.label_above()
 		self.input_field()
-		self.error_msg_label()
 		self.slot_connect()
 
 
@@ -84,9 +86,7 @@ class MainWindow(QMainWindow):
 
 			# set designs for the QLineEdit
 			size.setStyleSheet("QLineEdit {background:transparent; border-style: outset; border-width: 2px; border-color: green}")
-
-			# restrict inputs to int + set limit
-			size.setValidator(QRegExpValidator(exception))
+			size.setValidator(validator)
 
 
 	def slot_connect(self):
@@ -94,7 +94,6 @@ class MainWindow(QMainWindow):
 		self.input_Celcius.textChanged.connect(self.celcius_evaluation)
 		self.input_Fahrenheit.textChanged.connect(self.fahrenheit_evaluation)
 		self.input_Kelvin.textChanged.connect(self.kelvin_evaluation)
-
 
 
 	def celcius_evaluation(self, s):
@@ -111,7 +110,6 @@ class MainWindow(QMainWindow):
 		else:
 			print(f"Fahrenheit: {calculuate.celcius_to_fahrenheit(s)}")
 			print(f"Kelvin: {calculuate.celcius_to_kelvin(s)}")
-
 
 	def fahrenheit_evaluation(self, s):
 		# disable if there is a value in a lineedit
@@ -143,32 +141,6 @@ class MainWindow(QMainWindow):
 		else:
 			print(f"Celcius: {calculuate.kelvin_to_Celcius(s)}")
 			print(f"Fahrenheit: {calculuate.kelvin_to_Fahrenheit(s)}")
-
-
-	def error_msg_label(self):
-
-		self.celcius_error = QLabel("", self)
-
-		self.fahrenheit_error = QLabel("", self)
-
-		self.kelvin_error = QLabel("", self)
-
-		units = {
-			self.celcius_error: [250,182],
-			self.fahrenheit_error: [250,332],
-			self.kelvin_error: [250,482]	
-		}
-
-		for var, pos in units.items():
-			var.move(pos[0], pos[1])
-			var.resize(270,30)	
-			var.setFont(QFont("Arial", 16))
-			# set designs for the error
-			var.setStyleSheet("color: red; border: 2px solid black")
-			# set position of text to right
-			var.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignVCenter)
-
-
 
 
 
