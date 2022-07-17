@@ -2,7 +2,7 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-17 01:57:28
+# @Last Modified time: 2022-07-17 17:41:26
 
 
 import sys 
@@ -88,45 +88,6 @@ class MainWindow(QMainWindow):
 			# restrict inputs to int + set limit
 			size.setValidator(QRegExpValidator(exception))
 
-	def error_msg_label(self):
-		# temperatures = {"Celcius" : [180, 50], # dimen as of dimension
-		# 				"Fahrenheit" : [330,50], 
-		# 				"Kelvin" : [480,50]
-		# 				}
-
-
-		# for unit,dimen in temperatures.items():
-		# 	labels = QLabel("Error.", self)
-		# 	labels.setFont(QFont("Arial", 20))
-		# 	labels.move(20,dimensions)
-		# 	labels.resize(160,30)
-
-
-		self.celcius_error = QLabel("Error found", self)
-		# self.celcius_error.move(150, 182)
-		# self.celcius_error.resize(160,30)
-
-		self.fahrenheit_error = QLabel("Error found", self)
-		# self.fahrenheit_error.move(170, 332)
-		# self.fahrenheit_error.resize(160,30)
-
-		self.kelvin_error = QLabel("Error found", self)
-		# self.kelvin_error.move(150, 482)
-		# self.kelvin_error.resize(160,30)
-
-		units = {
-			self.celcius_error: [250,182],
-			self.fahrenheit_error: [250,332],
-			self.kelvin_error: [250,482]	
-		}
-
-		for var, pos in units.items():
-			var.move(pos[0], pos[1])
-			var.resize(270,30)	
-			var.setFont(QFont("Arial", 16))
-			var.setStyleSheet("color: red; border: 2px solid black")
-			var.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignVCenter)
-
 
 	def slot_connect(self):
 
@@ -184,6 +145,37 @@ class MainWindow(QMainWindow):
 			print(f"Fahrenheit: {calculuate.kelvin_to_Fahrenheit(s)}")
 
 
+	def error_msg_label(self):
+
+		self.celcius_error = QLabel("", self)
+
+		self.fahrenheit_error = QLabel("", self)
+
+		self.kelvin_error = QLabel("", self)
+
+		units = {
+			self.celcius_error: [250,182],
+			self.fahrenheit_error: [250,332],
+			self.kelvin_error: [250,482]	
+		}
+
+		for var, pos in units.items():
+			var.move(pos[0], pos[1])
+			var.resize(270,30)	
+			var.setFont(QFont("Arial", 16))
+			# set designs for the error
+			var.setStyleSheet("color: red; border: 2px solid black")
+			# set position of text to right
+			var.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignVCenter)
+
+
+
+
+
+
 window = MainWindow()
 window.show()
 app.exec_()
+
+
+
