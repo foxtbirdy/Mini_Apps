@@ -2,12 +2,13 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-18 13:50:36
+# @Last Modified time: 2022-07-18 19:31:29
 
 
 import sys 
+import webbrowser
 
-from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QLineEdit, QTextEdit)
+from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QLineEdit, QTextEdit, QDialog, QPushButton, QDialogButtonBox, QVBoxLayout)
 from PyQt5 import QtCore
 from PyQt5 import QtGui
 from PyQt5.QtCore import Qt, QRegExp
@@ -31,13 +32,15 @@ validator = QtGui.QRegExpValidator(exception)
 class MainWindow(QMainWindow):
 	def __init__(self):
 		super().__init__()	
-		self.setWindowTitle("Testing Balls")
+		self.setWindowTitle("Temperature Converter")
 		self.setFixedSize(600,800)
+		self.setStyleSheet(open("design.css", "r").read())
+
 		self.label_above()
 		self.input_field()
 		self.slot_connect()
 		self.display_results()
-
+		self.credits()
 
 	def label_above(self):
 		# first label
@@ -88,7 +91,6 @@ class MainWindow(QMainWindow):
 			size.setFont(font)
 
 			# set designs for the QLineEdit
-			size.setStyleSheet("QLineEdit {background:transparent; border-style: outset; border-width: 2px; border-color: green}")
 			size.setValidator(validator)
 
 
@@ -99,6 +101,7 @@ class MainWindow(QMainWindow):
 		self.input_Kelvin.textChanged.connect(self.kelvin_evaluation)
 
 
+
 	def celcius_evaluation(self, s):
 		# disable if there is a value in a lineedit
 
@@ -107,6 +110,8 @@ class MainWindow(QMainWindow):
 		if s == "":
 			self.ans_text_box.setText("")
 			pass
+		elif s == "-":
+			self.ans_text_box.setText("")		
 		else:
 			self.ans_text_box.setText(f"Fahrenheit: {calculuate.celcius_to_fahrenheit(s)}\nKelvin: {calculuate.celcius_to_kelvin(s)}")
 
@@ -125,24 +130,21 @@ class MainWindow(QMainWindow):
 		if s == "":
 			self.ans_text_box.setText("")
 			pass
+		elif s == "-":
+			self.ans_text_box.setText("")		
 		else:
 			self.ans_text_box.setText(f"Celcius: {calculuate.fahrenheit_to_celcius(s)}\nKelvin: {calculuate.fahrenheit_to_kelvin(s)}")
 
 
 	def kelvin_evaluation(self, s):
-		# disable if there is a value in a lineedit
-		# if len(s) > 0:
-		# 	self.input_Fahrenheit.setDisabled(True)
-		# 	self.input_Celcius.setDisabled(True)
-		# else:
-		# 	self.input_Fahrenheit.setDisabled(False)
-		# 	self.input_Celcius.setDisabled(False)
 
 		self.disable_TextFields(value=s, func1=self.input_Celcius, func2=self.input_Fahrenheit)
 
 		if s == "":
 			self.ans_text_box.setText("")
 			pass
+		elif s == "-":
+			self.ans_text_box.setText("")		
 		else:
 			self.ans_text_box.setText(f"Celcius: {calculuate.kelvin_to_Celcius(s)}\nfFahrenheit: {calculuate.kelvin_to_Fahrenheit(s)}")
 
@@ -162,8 +164,49 @@ class MainWindow(QMainWindow):
 		self.ans_text_box.move(20,630) # x , y
 		
 		self.ans_text_box.setPlaceholderText("The answers will be presented here.")
-		self.ans_text_box.setStyleSheet('background: transparent; border: 0; font-size: 30px')
 
+
+	def credits(self):
+		self.author = QPushButton("Created by @Black_2_white for research and Open Sourced Development", self)
+		self.author.move(110,770)
+		self.author.resize(400,30)
+		self.author.clicked.connect(self.author_response)
+
+
+
+
+	def author_response(self):
+		dlg = CustomDialog_forAuthor()
+		if dlg.exec_():
+			webbrowser.open("www.twitter.com/@Black_2_white")
+
+	
+
+
+class CustomDialog_forAuthor(QDialog):
+	def __init__(self):
+		super().__init__()
+
+		self.setWindowTitle("Hello there!")
+		self.setFixedSize(600,500)
+		self.setStyleSheet("QDialog {background: black;}")
+
+		QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
+
+		self.buttonBox = QDialogButtonBox(QBtn)
+		self.buttonBox.setStyleSheet("color: black")
+		self.buttonBox.accepted.connect(self.accept)
+		self.buttonBox.rejected.connect(self.reject)
+
+		self.layout = QVBoxLayout()
+		message = QLabel("Thank you for using this app.\n This is the second major solo app project I made in the library of the PyQt5. I hope that you can use this for your own research. If you wish, you can visit my Twitter Page!\nWill you go?")
+		self.layout.addWidget(message)
+		self.layout.addWidget(self.buttonBox)
+		self.setLayout(self.layout)
+		message.setWordWrap(True)
+		message.setStyleSheet("color: white")
+		message.setFont(QFont("Montserrat", 15))
+		message.setAlignment(Qt.AlignCenter)
 
 
 
