@@ -2,7 +2,7 @@
 * @Author: Climax
 * @Date:   2022-07-18 13:52:44
 * @Last Modified by:   Climax
-* @Last Modified time: 2022-07-18 19:31:34
+* @Last Modified time: 2022-07-18 19:41:07
 */
 
 
@@ -25,7 +25,6 @@ QPushButton {
 	background: transparent
 
 }
-
 
 QPushButton::hover {
 	color: blue;

@@ -2,7 +2,7 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-18 19:31:29
+# @Last Modified time: 2022-07-18 20:29:11
 
 
 import sys 
@@ -14,7 +14,7 @@ from PyQt5 import QtGui
 from PyQt5.QtCore import Qt, QRegExp
 from PyQt5.QtGui import QFont, QRegExpValidator
 
-from convert import SI_Calculator
+from assets.convert import SI_Calculator
 
 # QRegExp is for the Regex Support. 
 # QRegExpValidator is for the validator of the PyQt5 to be Regex Supported
@@ -34,7 +34,7 @@ class MainWindow(QMainWindow):
 		super().__init__()	
 		self.setWindowTitle("Temperature Converter")
 		self.setFixedSize(600,800)
-		self.setStyleSheet(open("design.css", "r").read())
+		self.setStyleSheet(open("assets/design.css", "r").read())
 
 		self.label_above()
 		self.input_field()
@@ -120,13 +120,6 @@ class MainWindow(QMainWindow):
 		# disable if there is a value in a lineedit
 		self.disable_TextFields(value=s, func1=self.input_Celcius, func2=self.input_Kelvin)
 
-		if len(s) > 0:
-			self.input_Celcius.setDisabled(True)
-			self.input_Kelvin.setDisabled(True)
-		else:
-			self.input_Celcius.setDisabled(False)
-			self.input_Kelvin.setDisabled(False)
-
 		if s == "":
 			self.ans_text_box.setText("")
 			pass
@@ -146,7 +139,7 @@ class MainWindow(QMainWindow):
 		elif s == "-":
 			self.ans_text_box.setText("")		
 		else:
-			self.ans_text_box.setText(f"Celcius: {calculuate.kelvin_to_Celcius(s)}\nfFahrenheit: {calculuate.kelvin_to_Fahrenheit(s)}")
+			self.ans_text_box.setText(f"Celcius: {calculuate.kelvin_to_Celcius(s)}\nFahrenheit: {calculuate.kelvin_to_Fahrenheit(s)}")
 
 
 	def disable_TextFields(self, value, func1, func2):
@@ -162,8 +155,8 @@ class MainWindow(QMainWindow):
 		self.ans_text_box = QTextEdit(self)
 		self.ans_text_box.setFixedSize(500,130) # width , height
 		self.ans_text_box.move(20,630) # x , y
-		
 		self.ans_text_box.setPlaceholderText("The answers will be presented here.")
+		self.ans_text_box.setReadOnly(True)
 
 
 	def credits(self):
@@ -172,15 +165,10 @@ class MainWindow(QMainWindow):
 		self.author.resize(400,30)
 		self.author.clicked.connect(self.author_response)
 
-
-
-
 	def author_response(self):
 		dlg = CustomDialog_forAuthor()
 		if dlg.exec_():
 			webbrowser.open("www.twitter.com/@Black_2_white")
-
-	
 
 
 class CustomDialog_forAuthor(QDialog):
@@ -188,8 +176,7 @@ class CustomDialog_forAuthor(QDialog):
 		super().__init__()
 
 		self.setWindowTitle("Hello there!")
-		self.setFixedSize(600,500)
-		self.setStyleSheet("QDialog {background: black;}")
+		self.setFixedSize(600,300)
 
 		QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
 
@@ -199,14 +186,16 @@ class CustomDialog_forAuthor(QDialog):
 		self.buttonBox.rejected.connect(self.reject)
 
 		self.layout = QVBoxLayout()
+
 		message = QLabel("Thank you for using this app.\n This is the second major solo app project I made in the library of the PyQt5. I hope that you can use this for your own research. If you wish, you can visit my Twitter Page!\nWill you go?")
+		message.setWordWrap(True)
+		message.setStyleSheet("color: purple; font-weight: bold;")
+		message.setFont(QFont("Montserrat", 15))
+		message.setAlignment(Qt.AlignCenter)
+
 		self.layout.addWidget(message)
 		self.layout.addWidget(self.buttonBox)
 		self.setLayout(self.layout)
-		message.setWordWrap(True)
-		message.setStyleSheet("color: white")
-		message.setFont(QFont("Montserrat", 15))
-		message.setAlignment(Qt.AlignCenter)
 
 
 
