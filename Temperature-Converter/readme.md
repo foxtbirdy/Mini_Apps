@@ -11,8 +11,7 @@ This is a Python project but the library comes as a inheritance of the Qt Engine
 ## Architecture of the Project
 
 For reference, this is the Architecture that I made on the development of this project. Expect this to be developed in case that I missed something.
-
-[!image](https://github.com/Code-Blender-7/Mini_Apps/blob/main/Temperature-Converter/images_for_readme/img.png?raw=true)
+This is the link to the Architecture.[image](https://excalidraw.com/#json=9OldSol-T_XQwxATrvOR_,3_84OPit7qo_aunJ0h6mfw)
 
 ## Requirements
 
@@ -37,7 +36,7 @@ Click [here](https://downgit.github.io/#/home?url=https://github.com/Code-Blende
 
 ## Demo
 
-Below here is a twitter link that directs to a post related to #100Daysofcode. You may view the demo [here]().
+Below here is a twitter link that directs to a post related to #100Daysofcode. You may view the demo [here](https://mobile.twitter.com/Black_2_white/status/1549072634092359680).
 ## Run Locally
 To run this project, you must have its requirements. Once they are completed, simply open the file '**app.py**' of the parent directory to run the project.
 
