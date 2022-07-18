@@ -2,13 +2,12 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-18 11:34:23
+# @Last Modified time: 2022-07-18 13:50:36
 
 
 import sys 
-import re
 
-from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QLineEdit)
+from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QLineEdit, QTextEdit)
 from PyQt5 import QtCore
 from PyQt5 import QtGui
 from PyQt5.QtCore import Qt, QRegExp
@@ -21,6 +20,7 @@ from convert import SI_Calculator
 
 
 calculuate = SI_Calculator()
+
 app = QApplication(sys.argv)
 regex = r'([\d]+)|(-[0-9]+)'
 exception = QtCore.QRegExp(regex) # Regex syntax
@@ -36,6 +36,7 @@ class MainWindow(QMainWindow):
 		self.label_above()
 		self.input_field()
 		self.slot_connect()
+		self.display_results()
 
 
 	def label_above(self):
@@ -100,21 +101,20 @@ class MainWindow(QMainWindow):
 
 	def celcius_evaluation(self, s):
 		# disable if there is a value in a lineedit
-		if len(s) > 0:
-			self.input_Fahrenheit.setDisabled(True)
-			self.input_Kelvin.setDisabled(True)
-		else:
-			self.input_Fahrenheit.setDisabled(False)
-			self.input_Kelvin.setDisabled(False)
+
+		self.disable_TextFields(value=s, func1=self.input_Fahrenheit, func2=self.input_Kelvin)
 
 		if s == "":
+			self.ans_text_box.setText("")
 			pass
 		else:
-			print(f"Fahrenheit: {calculuate.celcius_to_fahrenheit(s)}")
-			print(f"Kelvin: {calculuate.celcius_to_kelvin(s)}")
+			self.ans_text_box.setText(f"Fahrenheit: {calculuate.celcius_to_fahrenheit(s)}\nKelvin: {calculuate.celcius_to_kelvin(s)}")
+
 
 	def fahrenheit_evaluation(self, s):
 		# disable if there is a value in a lineedit
+		self.disable_TextFields(value=s, func1=self.input_Celcius, func2=self.input_Kelvin)
+
 		if len(s) > 0:
 			self.input_Celcius.setDisabled(True)
 			self.input_Kelvin.setDisabled(True)
@@ -123,26 +123,47 @@ class MainWindow(QMainWindow):
 			self.input_Kelvin.setDisabled(False)
 
 		if s == "":
+			self.ans_text_box.setText("")
 			pass
 		else:
-			print(f"Celcius: {calculuate.fahrenheit_to_celcius(s)}")
-			print(f"Kelvin: {calculuate.fahrenheit_to_kelvin(s)}")
+			self.ans_text_box.setText(f"Celcius: {calculuate.fahrenheit_to_celcius(s)}\nKelvin: {calculuate.fahrenheit_to_kelvin(s)}")
 
 
 	def kelvin_evaluation(self, s):
 		# disable if there is a value in a lineedit
-		if len(s) > 0:
-			self.input_Fahrenheit.setDisabled(True)
-			self.input_Celcius.setDisabled(True)
-		else:
-			self.input_Fahrenheit.setDisabled(False)
-			self.input_Celcius.setDisabled(False)
+		# if len(s) > 0:
+		# 	self.input_Fahrenheit.setDisabled(True)
+		# 	self.input_Celcius.setDisabled(True)
+		# else:
+		# 	self.input_Fahrenheit.setDisabled(False)
+		# 	self.input_Celcius.setDisabled(False)
+
+		self.disable_TextFields(value=s, func1=self.input_Celcius, func2=self.input_Fahrenheit)
 
 		if s == "":
+			self.ans_text_box.setText("")
 			pass
 		else:
-			print(f"Celcius: {calculuate.kelvin_to_Celcius(s)}")
-			print(f"Fahrenheit: {calculuate.kelvin_to_Fahrenheit(s)}")
+			self.ans_text_box.setText(f"Celcius: {calculuate.kelvin_to_Celcius(s)}\nfFahrenheit: {calculuate.kelvin_to_Fahrenheit(s)}")
+
+
+	def disable_TextFields(self, value, func1, func2):
+		if len(value) > 0:
+			func1.setDisabled(True)
+			func2.setDisabled(True)
+		else:
+			func1.setDisabled(False)
+			func2.setDisabled(False)
+
+
+	def display_results(self):
+		self.ans_text_box = QTextEdit(self)
+		self.ans_text_box.setFixedSize(500,130) # width , height
+		self.ans_text_box.move(20,630) # x , y
+		
+		self.ans_text_box.setPlaceholderText("The answers will be presented here.")
+		self.ans_text_box.setStyleSheet('background: transparent; border: 0; font-size: 30px')
+
 
 
 
