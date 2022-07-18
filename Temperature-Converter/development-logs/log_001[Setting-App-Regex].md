@@ -14,13 +14,6 @@ the second approach is something unique. the concept of using the built-in QRegE
 
 There are other 2 types of validators that I wanted to try but decided not to. I'll let you figure out the reason why I didn't choose it.
 
-I should remember this
-
-1. The code must be able to handle the sign "-" in case the value is negative.
-2. The code must not have any "" sign.
-3. No Special characters.
-4. All Integers or should i say "numbers".
-
 the QRegExp comes from the QtCore.
 the QRegExpValidator comes from the QtGui
 
@@ -41,3 +34,26 @@ the QRegExpValidator comes with a feature of "Invalid, Accepted, Intermediate"
 both the respond have their own code calls that makes my work be a lot easier.
 
 This is a link of a post by [snorfalorpagus.net](https://snorfalorpagus.net/blog/2014/08/09/validating-user-input-in-pyqt4-using-qvalidator/) related to the usage of Validator. They covered all the details. I think.
+
+
+
+# Explaining the Regex of the App
+
+Regex or Regular Expression is used to match and specify certain string or letters based on a conditional parameter to check if they match or not.
+The app uses as I said QRegExpValidator for its evaluation.
+
+
+These are the requirements of the app
+1. The code must be able to handle the sign "-" in case the value is negative.
+2. The code must not have any "" sign.
+3. No Special characters.
+4. All Integers or should i say "numbers".
+5. The user may select - on the first letter but it cannot be repeated twice.
+
+This is my regex code for that
+```
+regex = r'([\d]+)|(-[0-9]+)'
+```
+
+This is for python but I guess you can modify it for your own use.
+

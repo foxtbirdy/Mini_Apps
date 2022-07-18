@@ -2,10 +2,11 @@
 # @Author: Climax
 # @Date:   2022-07-09 22:31:13
 # @Last Modified by:   Climax
-# @Last Modified time: 2022-07-17 20:16:36
+# @Last Modified time: 2022-07-18 11:34:23
 
 
 import sys 
+import re
 
 from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QLineEdit)
 from PyQt5 import QtCore
@@ -21,7 +22,8 @@ from convert import SI_Calculator
 
 calculuate = SI_Calculator()
 app = QApplication(sys.argv)
-exception = QtCore.QRegExp('[0-9.-]+$') # Regex syntax
+regex = r'([\d]+)|(-[0-9]+)'
+exception = QtCore.QRegExp(regex) # Regex syntax
 validator = QtGui.QRegExpValidator(exception)
 
 
