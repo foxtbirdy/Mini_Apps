@@ -20,7 +20,7 @@ You can find the encryption code [here](https://www.dotnetperls.com/rot13-python
 
 ### Project Overview and Demo
 This is the project overview using the default theme.
-![image 1](https://github.com/Code-Blender-7/Mini_Apps/blob/main/ROT13%20App/Images_for_readme/1.png)
+![image 1](https://github.com/Code-Blender-7/assets/blob/main/Mini-Apps/ROT13%20App/1.png)
 
 You can find the Demo via this [twitter link!](https://twitter.com/Black_2_white/status/1381659824409079808)
 
