@@ -8,7 +8,7 @@
 import sys 
 import webbrowser
 
-from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QLineEdit, QTextEdit, QDialog, QPushButton, QDialogButtonBox, QVBoxLayout)
+from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QLineEdit, QTextEdit, QDialog, QPushButton, QDialogButtonBox, QVBoxLayout, QGraphicsOpacityEffect, QWidget)
 from PyQt5 import QtCore
 from PyQt5 import QtGui
 from PyQt5.QtCore import Qt, QRegExp
@@ -29,12 +29,13 @@ validator = QtGui.QRegExpValidator(exception)
 
 
 
+
 class MainWindow(QMainWindow):
 	def __init__(self):
-		super().__init__()	
+		super().__init__()
 		self.setWindowTitle("Temperature Converter")
 		self.setFixedSize(600,800)
-		self.setStyleSheet(open("assets/design.css", "r").read())
+		self.setStyleSheet(open("assets/design.css", "r").read())		
 
 		self.label_above()
 		self.input_field()
@@ -81,7 +82,7 @@ class MainWindow(QMainWindow):
 		self.input_Kelvin = QLineEdit("", self)
 		self.input_Kelvin.move(20,540)
 		self.input_Kelvin.setPlaceholderText("Enter your Kelvin here")
-
+  
 		for size in self.input_Kelvin, self.input_Fahrenheit, self.input_Celcius:
 			# set size for QLineEdit
 			size.resize(500,50)
@@ -101,17 +102,25 @@ class MainWindow(QMainWindow):
 		self.input_Kelvin.textChanged.connect(self.kelvin_evaluation)
 
 
+	def display_results(self):
+		"""
+		Text field to show the results of the convertion
+		"""		
+		self.ans_text_box = QTextEdit(self)
+		self.ans_text_box.setFixedSize(500,130) # width , height
+		self.ans_text_box.move(20,630) # x , y
+		self.ans_text_box.setPlaceholderText("The answers will be presented here.")
+		self.ans_text_box.setReadOnly(True)
 
 	def celcius_evaluation(self, s):
 		# disable if there is a value in a lineedit
-
 		self.disable_TextFields(value=s, func1=self.input_Fahrenheit, func2=self.input_Kelvin)
 
 		if s == "":
 			self.ans_text_box.setText("")
 			pass
 		elif s == "-":
-			self.ans_text_box.setText("")		
+			self.ans_text_box.setText("")
 		else:
 			self.ans_text_box.setText(f"Fahrenheit: {calculuate.celcius_to_fahrenheit(s)}\nKelvin: {calculuate.celcius_to_kelvin(s)}")
 
@@ -130,7 +139,7 @@ class MainWindow(QMainWindow):
 
 
 	def kelvin_evaluation(self, s):
-
+		# disable if there is a value in a lineedit
 		self.disable_TextFields(value=s, func1=self.input_Celcius, func2=self.input_Fahrenheit)
 
 		if s == "":
@@ -143,20 +152,22 @@ class MainWindow(QMainWindow):
 
 
 	def disable_TextFields(self, value, func1, func2):
+		# note that two instances of QGraphicsEffect is required because one instance can be installed to one widget
+		func1_effects = QGraphicsOpacityEffect()
+		func2_effects = QGraphicsOpacityEffect()
+		func1.setGraphicsEffect(func1_effects)
+		func2.setGraphicsEffect(func2_effects)
+  	
 		if len(value) > 0:
+			func1_effects.setOpacity(0.5)
+			func2_effects.setOpacity(0.5)
 			func1.setDisabled(True)
 			func2.setDisabled(True)
 		else:
+			func1_effects.setOpacity(1)
+			func2_effects.setOpacity(1)
 			func1.setDisabled(False)
 			func2.setDisabled(False)
-
-
-	def display_results(self):
-		self.ans_text_box = QTextEdit(self)
-		self.ans_text_box.setFixedSize(500,130) # width , height
-		self.ans_text_box.move(20,630) # x , y
-		self.ans_text_box.setPlaceholderText("The answers will be presented here.")
-		self.ans_text_box.setReadOnly(True)
 
 
 	def credits(self):
@@ -164,6 +175,7 @@ class MainWindow(QMainWindow):
 		self.author.move(110,770)
 		self.author.resize(400,30)
 		self.author.clicked.connect(self.author_response)
+  
 
 	def author_response(self):
 		dlg = CustomDialog_forAuthor()
@@ -198,11 +210,6 @@ class CustomDialog_forAuthor(QDialog):
 		self.setLayout(self.layout)
 
 
-
-
 window = MainWindow()
 window.show()
 app.exec_()
-
-
-
