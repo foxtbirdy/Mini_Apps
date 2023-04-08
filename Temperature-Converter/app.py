@@ -8,7 +8,7 @@
 import sys 
 import webbrowser
 
-from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QLineEdit, QTextEdit, QDialog, QPushButton, QDialogButtonBox, QVBoxLayout, QGraphicsOpacityEffect, QWidget)
+from PyQt5.QtWidgets import (QMainWindow, QApplication, QLabel, QLineEdit, QTextEdit, QDialog, QPushButton, QDialogButtonBox, QVBoxLayout, QGraphicsOpacityEffect, QStatusBar, QToolBar, QAction)
 from PyQt5 import QtCore
 from PyQt5 import QtGui
 from PyQt5.QtCore import Qt, QRegExp
@@ -36,25 +36,26 @@ class MainWindow(QMainWindow):
 		self.setWindowTitle("Temperature Converter")
 		self.setFixedSize(600,800)
 		self.setStyleSheet(open("assets/design.css", "r").read())		
-
+		self.setStatusBar(QStatusBar(self))
+  
 		self.label_above()
 		self.input_field()
 		self.slot_connect()
 		self.display_results()
-		self.credits()
+		self.toolBarSettings()
 
 	def label_above(self):
 		# first label
 		label_Intro = QLabel("Enter your Temperature value below~", self)
 		label_Intro.setFont(QFont("Arial", 15))
 		label_Intro.resize(500,30)
-		label_Intro.move(20,20)
+		label_Intro.move(20,30)
 
 		# second label
 		label_description = QLabel("Please insert your value in one of the boxes given below. The application will display the converted value of the other corresponding values.", self)
 		label_description.setFont(QFont("Arial", 15))
 		label_description.resize(500,90)
-		label_description.move(20,50)
+		label_description.move(20,60)
 		label_description.setWordWrap(True)
 
 	def input_field(self):
@@ -74,6 +75,7 @@ class MainWindow(QMainWindow):
 		self.input_Celcius = QLineEdit("", self)
 		self.input_Celcius.move(20,245)
 		self.input_Celcius.setPlaceholderText("Enter your Celcius here")
+
 
 		self.input_Fahrenheit = QLineEdit("", self)
 		self.input_Fahrenheit.move(20,390)
@@ -115,7 +117,7 @@ class MainWindow(QMainWindow):
 	def celcius_evaluation(self, s):
 		# disable if there is a value in a lineedit
 		self.disable_TextFields(value=s, func1=self.input_Fahrenheit, func2=self.input_Kelvin)
-
+  
 		if s == "":
 			self.ans_text_box.setText("")
 			pass
@@ -128,7 +130,7 @@ class MainWindow(QMainWindow):
 	def fahrenheit_evaluation(self, s):
 		# disable if there is a value in a lineedit
 		self.disable_TextFields(value=s, func1=self.input_Celcius, func2=self.input_Kelvin)
-
+  
 		if s == "":
 			self.ans_text_box.setText("")
 			pass
@@ -141,7 +143,7 @@ class MainWindow(QMainWindow):
 	def kelvin_evaluation(self, s):
 		# disable if there is a value in a lineedit
 		self.disable_TextFields(value=s, func1=self.input_Celcius, func2=self.input_Fahrenheit)
-
+  
 		if s == "":
 			self.ans_text_box.setText("")
 			pass
@@ -170,14 +172,18 @@ class MainWindow(QMainWindow):
 			func2.setDisabled(False)
 
 
-	def credits(self):
-		self.author = QPushButton("Created by @Black_2_white for research and Open Sourced Development", self)
-		self.author.move(110,770)
-		self.author.resize(400,30)
-		self.author.clicked.connect(self.author_response)
+	def toolBarSettings(self):
+		toolBar = QToolBar("ToolBar")
+		self.addToolBar(toolBar)
+		toolBar.setMovable(False)
   
+		button_action = QAction("Credits", self)
+		button_action.triggered.connect(self.credits)
+		toolBar.addAction(button_action)
 
-	def author_response(self):
+		button_action.setStatusTip("Display the Author's Credits")
+
+	def credits(self):
 		dlg = CustomDialog_forAuthor()
 		if dlg.exec_():
 			webbrowser.open("www.twitter.com/@Black_2_white")
@@ -199,13 +205,19 @@ class CustomDialog_forAuthor(QDialog):
 
 		self.layout = QVBoxLayout()
 
-		message = QLabel("Thank you for using this app.\n This is the second major solo app project I made in the library of the PyQt5. I hope that you can use this for your own research. If you wish, you can visit my Twitter Page!\nWill you go?")
-		message.setWordWrap(True)
-		message.setStyleSheet("color: purple; font-weight: bold;")
-		message.setFont(QFont("Montserrat", 15))
-		message.setAlignment(Qt.AlignCenter)
+		message_text = QLabel("""
+Thank you for using this app. 
+This is the second major solo app project I made in the library of the PyQt5. 
+I hope that you can use this for your own research. 
 
-		self.layout.addWidget(message)
+If you wish, you can visit my Twitter Page!
+Will you go?
+        """)
+		message_text.setWordWrap(True)
+		message_text.setStyleSheet("color: black; font-weight: bold;")
+		message_text.setFont(QFont("Gudea", 15))
+
+		self.layout.addWidget(message_text)
 		self.layout.addWidget(self.buttonBox)
 		self.setLayout(self.layout)
 
